@@ -18,3 +18,118 @@ jobs:
         with:
           distribution: 'corretto'
           java-version: '16'
+      - name: intersection (1 Point)
+        id: intersection-1-point
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: intersection (1 Point)
+          setup-command: ''
+          command: gradle test --tests at.ac.fhcampuswien.AppTest.intersection
+          timeout: 1
+          max-score: 1
+      - name: symmetricDifference1 (1 Point)
+        id: symmetricdifference1-1-point
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: symmetricDifference1 (1 Point)
+          setup-command: ''
+          command: gradle test --tests at.ac.fhcampuswien.AppTest.symmetricDifference1
+          timeout: 1
+          max-score: 1
+      - name: symmetricDifference2 (1 Point)
+        id: symmetricdifference2-1-point
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: symmetricDifference2 (1 Point)
+          setup-command: ''
+          command: gradle test --tests at.ac.fhcampuswien.AppTest.symmetricDifference2
+          timeout: 1
+          max-score: 1
+      - name: listOfStudentsToMap (1 Point)
+        id: listofstudentstomap-1-point
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: listOfStudentsToMap (1 Point)
+          setup-command: ''
+          command: gradle test --tests at.ac.fhcampuswien.AppTest.listOfStudentsToMap
+          timeout: 1
+          max-score: 1
+      - name: eraseDuplicatesInList1 (1 Point)
+        id: eraseduplicatesinlist1-1-point
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: eraseDuplicatesInList1 (1 Point)
+          setup-command: ''
+          command: gradle test --tests at.ac.fhcampuswien.AppTest.eraseDuplicatesInList1
+          timeout: 1
+          max-score: 1
+      - name: eraseDuplicatesInList2 (1 Point)
+        id: eraseduplicatesinlist2-1-point
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: eraseDuplicatesInList2 (1 Point)
+          setup-command: ''
+          command: gradle test --tests at.ac.fhcampuswien.AppTest.eraseDuplicatesInList2
+          timeout: 1
+          max-score: 1
+      - name: isAnagramNote 2 Points
+        id: isanagramnote-2-points
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: isAnagramNote 2 Points
+          setup-command: ''
+          command: gradle test --tests at.ac.fhcampuswien.AppTest.isAnagramNote
+          timeout: 1
+          max-score: 2
+      - name: isPalindrome 1 Point
+        id: ispalindrome-1-point
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: isPalindrome 1 Point
+          setup-command: ''
+          command: gradle test --tests at.ac.fhcampuswien.AppTest.isPalindrome
+          timeout: 1
+          max-score: 1
+      - name: serializePerson (2 Points)
+        id: serializeperson-2-points
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: serializePerson (2 Points)
+          setup-command: ''
+          command: gradle test --tests at.ac.fhcampuswien.AppTest.serializePerson
+          timeout: 1
+          max-score: 2
+      - name: deserializePerson (2 Points)
+        id: deserializeperson-2-points
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: deserializePerson (2 Points)
+          setup-command: ''
+          command: gradle test --tests at.ac.fhcampuswien.AppTest.deserializePerson
+          timeout: 1
+          max-score: 2
+      - name: fileToList (2 Points)
+        id: filetolist-2-points
+        uses: classroom-resources/autograding-command-grader@v1
+        with:
+          test-name: fileToList (2 Points)
+          setup-command: ''
+          command: gradle test --tests at.ac.fhcampuswien.AppTest.fileToList
+          timeout: 1
+          max-score: 2
+      - name: Autograding Reporter
+        uses: classroom-resources/autograding-grading-reporter@v1
+        env:
+          INTERSECTION-1-POINT_RESULTS: "${{steps.intersection-1-point.outputs.result}}"
+          SYMMETRICDIFFERENCE1-1-POINT_RESULTS: "${{steps.symmetricdifference1-1-point.outputs.result}}"
+          SYMMETRICDIFFERENCE2-1-POINT_RESULTS: "${{steps.symmetricdifference2-1-point.outputs.result}}"
+          LISTOFSTUDENTSTOMAP-1-POINT_RESULTS: "${{steps.listofstudentstomap-1-point.outputs.result}}"
+          ERASEDUPLICATESINLIST1-1-POINT_RESULTS: "${{steps.eraseduplicatesinlist1-1-point.outputs.result}}"
+          ERASEDUPLICATESINLIST2-1-POINT_RESULTS: "${{steps.eraseduplicatesinlist2-1-point.outputs.result}}"
+          ISANAGRAMNOTE-2-POINTS_RESULTS: "${{steps.isanagramnote-2-points.outputs.result}}"
+          ISPALINDROME-1-POINT_RESULTS: "${{steps.ispalindrome-1-point.outputs.result}}"
+          SERIALIZEPERSON-2-POINTS_RESULTS: "${{steps.serializeperson-2-points.outputs.result}}"
+          DESERIALIZEPERSON-2-POINTS_RESULTS: "${{steps.deserializeperson-2-points.outputs.result}}"
+          FILETOLIST-2-POINTS_RESULTS: "${{steps.filetolist-2-points.outputs.result}}"
+        with:
+          runners: intersection-1-point,symmetricdifference1-1-point,symmetricdifference2-1-point,listofstudentstomap-1-point,eraseduplicatesinlist1-1-point,eraseduplicatesinlist2-1-point,isanagramnote-2-points,ispalindrome-1-point,serializeperson-2-points,deserializeperson-2-points,filetolist-2-points
